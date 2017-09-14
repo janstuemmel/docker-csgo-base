@@ -15,7 +15,7 @@ RUN mkdir /server && chown -R $USER:$USER /server
 WORKDIR /home/$USER
 
 # add contents
-ADD . .
+ADD update.sh .
 
 # change user
 USER $USER
@@ -24,7 +24,7 @@ USER $USER
 RUN curl http://media.steampowered.com/client/steamcmd_linux.tar.gz | tar -xvz
 
 # download the server files
-RUN ./update.sh /server
+RUN ./update.sh
 
 # expose ports
 EXPOSE 27015/udp 27015
